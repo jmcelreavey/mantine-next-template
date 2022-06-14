@@ -1,10 +1,20 @@
 {
-    "editor.defaultFormatter": "Trunk.io",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-  }
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "Trunk.io"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "Trunk.io"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "Trunk.io"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "Trunk.io"
+  },
+  "files.autoSave": "onFocusChange",
+  "editor.defaultFormatter": "Trunk.io"
+}

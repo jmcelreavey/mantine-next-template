@@ -1,63 +1,104 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Happy Fun Birthday Quiz!</title>
-<script type="text/javascript">
-var counter = 0;
-function checkAnswer(answer, message, image, funny, nextQ, button1)
-{
-	var input = document.getElementById('input').value.toUpperCase();
-	if (input === answer)
-	{
-	++counter;
-	if (counter > 1)
-	{
-	window.location='classicQuizEnd.html'
-	}
-	alert(message);
-	document.getElementById('image').src="/images/"+image;
-	document.getElementById('funny').innerHTML = funny;
-	document.getElementById('question').innerHTML = nextQ;
-	document.getElementById('button1').value = button1;
-	document.getElementById('input').value = "";
-	}
-	
-}
+  <head>
+    <title>Happy Fun Birthday Quiz!</title>
+    <script type="text/javascript">
+      var counter = 0;
+      function checkAnswer(answer, message, image, funny, nextQ, button1) {
+        var input = document.getElementById('input').value.toUpperCase();
+        if (input === answer) {
+          ++counter;
+          if (counter > 1) {
+            window.location = 'classicQuizEnd.html';
+          }
+          alert(message);
+          document.getElementById('image').src = '/images/' + image;
+          document.getElementById('funny').innerHTML = funny;
+          document.getElementById('question').innerHTML = nextQ;
+          document.getElementById('button1').value = button1;
+          document.getElementById('input').value = '';
+        }
+      }
 
-function array1()
-{
-	switch(counter) {
-		case 0:
-		var answer = new checkAnswer("LAURA NIXON", "Phew, just making sure it's who I thought it was!", "django.jpg", "You'll enjoy this question. :)", "Sum up our first date with one name", "Maybe it's too easy?");
-		answer();
-		break;
-		case 1:
-		var answer = new checkAnswer("SIMON", "You probably enjoyed that question a bit too much..", "handshake.jpg", "One word answer for this, feels like it should be two though.", "When asked for a piece of archery equipment back, what's the correct response?", "I should have made these harder..");
-		answer();
-		case 2:
-		var answer = new checkAnswer("HANDSHAKE", "Bet you didn't enjoy that one as much!", "notebook.jpg", "Make sure your grammar is right! HAIL HITLER! :P", "A quote from the notebook", "What's even the point in all these questions?" );
-		answer();
-		case 3:
-		var answer = new checkAnswer("IF YOU'RE A BIRD I'M A BIRD", "Isn't this a fun Birthday surprise?", "kissing.jpg", "One word, question", "What's an appropriate thing to say before a kiss?", "You should just quit now.. Who knows how many is left?");
-		answer();
-		case 4:
-		var answer = new checkAnswer("WHAT?", "Surprised you're still going!", "steady.jpg", "In the format DD/MM/YY", "When did we become Boyfriend/Girlfriend", "You made it to the end!");
-		answer();
-		case 5:
-		var answer = new checkAnswer("18/03/13", "Happy Birthday!", "steady.jpg", " ", " ", " ");
-		answer();
-	default:
-	alert("You've broke me! I'm Broken! :'(");
-}
+      function array1() {
+        switch (counter) {
+          case 0:
+            var answer = new checkAnswer(
+              'LAURA NIXON',
+              "Phew, just making sure it's who I thought it was!",
+              'django.jpg',
+              "You'll enjoy this question. :)",
+              'Sum up our first date with one name',
+              "Maybe it's too easy?"
+            );
+            answer();
+            break;
+          case 1:
+            var answer = new checkAnswer(
+              'SIMON',
+              'You probably enjoyed that question a bit too much..',
+              'handshake.jpg',
+              'One word answer for this, feels like it should be two though.',
+              "When asked for a piece of archery equipment back, what's the correct response?",
+              'I should have made these harder..'
+            );
+            answer();
+          case 2:
+            var answer = new checkAnswer(
+              'HANDSHAKE',
+              "Bet you didn't enjoy that one as much!",
+              'notebook.jpg',
+              'Make sure your grammar is right! HAIL HITLER! :P',
+              'A quote from the notebook',
+              "What's even the point in all these questions?"
+            );
+            answer();
+          case 3:
+            var answer = new checkAnswer(
+              "IF YOU'RE A BIRD I'M A BIRD",
+              "Isn't this a fun Birthday surprise?",
+              'kissing.jpg',
+              'One word, question',
+              "What's an appropriate thing to say before a kiss?",
+              'You should just quit now.. Who knows how many is left?'
+            );
+            answer();
+          case 4:
+            var answer = new checkAnswer(
+              'WHAT?',
+              "Surprised you're still going!",
+              'steady.jpg',
+              'In the format DD/MM/YY',
+              'When did we become Boyfriend/Girlfriend',
+              'You made it to the end!'
+            );
+            answer();
+          case 5:
+            var answer = new checkAnswer(
+              '18/03/13',
+              'Happy Birthday!',
+              'steady.jpg',
+              ' ',
+              ' ',
+              ' '
+            );
+            answer();
+          default:
+            alert("You've broke me! I'm Broken! :'(");
+        }
+      }
+    </script>
+  </head>
 
-}
-</script>
-</head>
+  <body>
+    <center>
+      <img src="/images/bear.jpg" width="300" height="250" id="image" /> <br /><b id="funny"
+        >Bear with me a moment.</b
+      >
+      <p id="question">What is you're FULL name?<br /></p>
 
-<body>
-<center><img src="/images/bear.jpg" width="300" height="250" id="image"/>
-<br><b id="funny">Bear with me a moment.</b>
-<p id="question">What is you're FULL name?<br></p>
-
-<input type="text" id="input" size="40" >
-<br><input type="button" id="button1" value="That's my name, I swear!" onclick="array1()">
+      <input type="text" id="input" size="40" />
+      <br /><input type="button" id="button1" value="That's my name, I swear!" onclick="array1()" />
+    </center>
+  </body>
+</html>
