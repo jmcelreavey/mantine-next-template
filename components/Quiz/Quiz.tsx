@@ -1,8 +1,9 @@
+import { Modal } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import { QuizItem } from '../../types/QuizItem';
 import { QuizEntry } from './QuizEntry';
 
-type QuizProps = { quizEntries: QuizItem[] };
+type QuizProps = { quizEntries: QuizItem[]; completionContent: React.ReactNode };
 export const Quiz = (props: QuizProps) => {
   if (props.quizEntries.length === 0) {
     return null;
@@ -10,6 +11,7 @@ export const Quiz = (props: QuizProps) => {
 
   const [questionNumber, setQuestionNumber] = useState(1);
   const [quizEntry, setQuizEntry] = useState(props.quizEntries[0]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setQuizEntry(props.quizEntries[questionNumber - 1]);
@@ -19,14 +21,19 @@ export const Quiz = (props: QuizProps) => {
     const nextQuestionNumber = questionNumber + 1;
     setQuestionNumber(nextQuestionNumber);
 
-    const isLastQuestion = props.quizEntries.length === nextQuestionNumber;
+    const isLastQuestion = props.quizEntries.length < nextQuestionNumber;
     if (isLastQuestion) {
-      // Confetti
-      // Dialog with music
-    } else {
-      // Hearts
+      setShowModal(true);
+      setQuestionNumber(1);
     }
   };
 
-  return <QuizEntry {...quizEntry} id={questionNumber} onCorrectAnswer={onCorrectAnswer} />;
+  return (
+    <>
+      <Modal withCloseButton={false} opened={showModal} onClose={() => setShowModal(false)}>
+        {props.completionContent}
+      </Modal>
+      <QuizEntry {...quizEntry} id={questionNumber} onCorrectAnswer={onCorrectAnswer} />
+    </>
+  );
 };

@@ -57,8 +57,6 @@ export const QuizEntry = (
       <Card.Section style={{ margin: 7 }}>
         <form
           onSubmit={form.onSubmit(() => {
-            // Show dialog if it's a react component
-            // Set showComponent to true and render it
             showNotification({
               message: props.successMessage,
               autoClose: true,
