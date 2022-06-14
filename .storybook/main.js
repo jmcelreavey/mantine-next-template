@@ -1,3 +1,4 @@
+// trunk-ignore(eslint)
 module.exports = {
   stories: ['../**/**/*.story.mdx', '../**/**/*.story.@(js|jsx|ts|tsx)'],
   addons: [

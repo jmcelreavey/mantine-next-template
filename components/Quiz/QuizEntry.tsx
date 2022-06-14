@@ -15,7 +15,7 @@ import { QuizItem } from '../../types/QuizItem';
 
 type QuizEntryProps = {} & QuizItem;
 export const QuizEntry = (
-  props: QuizEntryProps & { hideButton?: boolean; onCorrectAnswer?: () => void }
+  props: QuizEntryProps & { lastQuestion?: boolean; onCorrectAnswer?: () => void }
 ) => {
   const theme = useMantineTheme();
 
@@ -56,24 +56,25 @@ export const QuizEntry = (
 
       <Card.Section style={{ margin: 7 }}>
         <form
-          onSubmit={() => {
+          onSubmit={form.onSubmit(() => {
+            // Show dialog if it's a react component
+            // Set showComponent to true and render it
             showNotification({
               message: props.successMessage,
               autoClose: true,
             });
+            form.reset();
             props.onCorrectAnswer?.();
-          }}
+          })}
         >
           <TextInput
             icon={<Heart fill="red" size={16} />}
             placeholder="Your answer"
             {...form.getInputProps('answer')}
           />
-          {!props.hideButton && (
-            <Button type="submit" variant="filled" color="green" style={{ marginTop: 7 }} fullWidth>
-              {props.buttonContent}
-            </Button>
-          )}
+          <Button type="submit" variant="filled" color="green" style={{ marginTop: 7 }} fullWidth>
+            {props.buttonContent}
+          </Button>
         </form>
       </Card.Section>
     </Card>

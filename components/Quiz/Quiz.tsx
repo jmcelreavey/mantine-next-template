@@ -15,12 +15,18 @@ export const Quiz = (props: QuizProps) => {
     setQuizEntry(props.quizEntries[questionNumber - 1]);
   }, [questionNumber]);
 
-  return (
-    <QuizEntry
-      {...quizEntry}
-      id={questionNumber}
-      hideButton={props.quizEntries.length === questionNumber}
-      onCorrectAnswer={() => setQuestionNumber(questionNumber + 1)}
-    />
-  );
+  const onCorrectAnswer = () => {
+    const nextQuestionNumber = questionNumber + 1;
+    setQuestionNumber(nextQuestionNumber);
+
+    const isLastQuestion = props.quizEntries.length === nextQuestionNumber;
+    if (isLastQuestion) {
+      // Confetti
+      // Dialog with music
+    } else {
+      // Hearts
+    }
+  };
+
+  return <QuizEntry {...quizEntry} id={questionNumber} onCorrectAnswer={onCorrectAnswer} />;
 };
